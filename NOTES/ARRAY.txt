@@ -1,0 +1,69 @@
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        //input size
+        System.out.print("enter size of array: ");
+        int size=sc.nextInt();
+
+        //initialising array with size
+        int[] arr=new int[size];
+        
+//*************************************** INPUT OF ARRAY *************************************************
+
+        System.out.print("enter elements of array: ");
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+        }
+
+//************************************** PRINTING OF ARRAY **************************************************
+
+        //output the array
+        System.out.print("your array is: ");
+        for(int i=0;i<size;i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+
+//************************************** SORTING OF ARRAY **************************************************
+        
+        //sorting array
+        for(int i=0;i<size;i++){
+            for(int j=i;j<size;j++){
+                if(arr[i]>arr[j]){
+                    int temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+       
+//************************************** REMOVE DUPLICACY FROM ARRAY **************************************************
+       
+        //remove duplicacy
+        int[] arr={1,2,2,3,3,9,4,6,6,8};
+        int a=0;
+        int len=1;
+        for(int i=1;i<arr.length;i++){
+            if(arr[i]!=arr[a]){
+                arr[a+1]=arr[i];
+                a++;
+                len++;
+            }
+        }
+
+
+//************************************** FINDING SECOND LARGEST ELEMENT **************************************************
+
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+
+        for(int i = 0; i < size; i++) {
+            if(arr[i] > largest) {
+                secondLargest = largest;
+                largest = arr[i];
+            } else if(arr[i] > secondLargest && arr[i] != largest) {
+                secondLargest = arr[i];
+            }
+        }
+    
